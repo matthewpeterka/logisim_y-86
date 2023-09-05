@@ -1,0 +1,32 @@
+irmovq  $10, %rax      // initialize j to 3
+
+irmovq  $20, %rbx      // initialize k to 2
+
+irmovq  $0, %rdx      // initialize i to 0
+
+irmovq $1, %rsi //register to hold 1
+
+irmovq $2, %rdi //register to hold 2
+
+
+
+
+
+Loop:
+
+    irmovq  $0, %rax      // initialize j to 0 for each iteration
+
+    irmovq  $1, %rbx      // initialize k to 1 for each iteration
+
+    addq    %rdx, %rax  // j = i
+    addq    %rax, %rax  // j = i + i = 2 * i
+
+    addq    %rax, %rbx    // k = j + 1
+
+    addq    %rsi, %rdx    // i++
+
+    irmovq  $5, %rcx    //move 5 to rcx to check i
+
+    subq    %rdx, %rcx  //subtract 5 from rdx
+    jg      Loop        // jump to Loop if i < 5
+halt

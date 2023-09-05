@@ -1,0 +1,20 @@
+#prob1 
+irmovq  $6, %rax     # Move the value 5 to the RAX register (i)
+rrmovq  %rax, %rsi   #move the value into register so subq won't overwrite it
+irmovq  $6, %rbx      # Move the value 6 to the RBX register (j)
+irmovq  $2, %rcx      # Move the value 2 to the RCX register
+irmovq  $1, %rdx      # Move the value 1 to the RDX register
+
+
+subq    %rbx, %rsi    # Subtract j from i
+jle     IF            # If i is less than j, jump to THEN
+irmovq  $1, %rax      # If i is greater than j, move the value 1 to i
+addq    %rdx, %rbx    # Adds one to j
+jmp     ENDIF
+
+IF:
+    addq    %rcx, %rax    # If i is less than j, add 2 to i
+    jmp ENDIF
+
+ENDIF:
+    halt
